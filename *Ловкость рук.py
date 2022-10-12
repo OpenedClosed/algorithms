@@ -12,17 +12,16 @@
 Найдите число баллов, которое смогут заработать
 Гоша и Тимофей, если будут нажимать на клавиши вдвоём.
 """
-fingers = 2 * int(input())
-score = 0
-counter = {}
-for i in range(4):
-    row = list(input())[:4]
-    for j in row:
-        if j not in counter:
-            counter[j] = 0
-        counter[j] += 1
+if __name__ == "__main__":
+    fingers = 2 * int(input())
+    score = 0
+    counter = {}
+    for i in range(4):
+        row = input()[:4]
+        for j in row:
+            counter[j] = counter.get(j, 0) + 1
 
-for k in counter:
-    if counter[k] <= fingers and k != '.':
-        score += 1
-print(score)
+    for k in counter:
+        if counter[k] <= fingers and k != '.':
+            score += 1
+    print(score)
