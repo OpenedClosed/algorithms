@@ -1,4 +1,4 @@
-# ID: 71908506
+# ID: 71973360
 """
 Тимофей ищет место, чтобы построить себе дом.
 Улица, на которой он хочет жить, имеет длину n,
@@ -14,7 +14,11 @@
 в котором строились, поэтому их номера на карте никак не упорядочены.
 Пустые участки обозначены нулями.
 """
-if __name__ == "__main__":
+
+def closer_zero():
+    """"Функция, находящая расстояния от 
+    определнного числа в массиве до ближайшего
+    к нему нуля"""
     amount_of_districts = int(input())
     house_numbers = list(map(int, input().split()[:amount_of_districts]))
     zero_positions = [
@@ -38,7 +42,6 @@ if __name__ == "__main__":
             if zero_positions[end] != zero_positions[-1]:
                 end += 1
             break
-         
         while i <= zero_positions[0]:
             distance.append(zero_positions[0] - i)
             i += 1
@@ -52,4 +55,8 @@ if __name__ == "__main__":
         begining = zero_positions[end]
         if zero_positions[end] != zero_positions[-1]:
             end += 1
-    print(*distance)
+
+    return distance
+
+if __name__ == "__main__":
+    print(*closer_zero())
