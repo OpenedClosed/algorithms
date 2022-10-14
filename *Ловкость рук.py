@@ -1,4 +1,4 @@
-# ID: 71972433
+# ID: 72062612
 """
 Игра «Тренажёр для скоростной печати» представляет
 собой поле из клавиш 4x4.
@@ -13,11 +13,10 @@
 Гоша и Тимофей, если будут нажимать на клавиши вдвоём.
 """
 
-def touch_the_button():
+def touch_the_button(fingers):
     """Функция, определяющая получит ли пара 
     игрков балл при попытке нажать на нужные
     клавиши на игровом поле"""
-    fingers = 2 * int(input())
     score = 0
     counter = {}
     for i in range(4):
@@ -31,4 +30,5 @@ def touch_the_button():
     return score
 
 if __name__ == "__main__":
-    print(touch_the_button())
+    players_fingers = 2 * int(input())
+    print(touch_the_button(fingers=players_fingers))

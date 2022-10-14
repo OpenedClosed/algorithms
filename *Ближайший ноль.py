@@ -1,4 +1,4 @@
-# ID: 71973360
+# ID: 72062974
 """
 Тимофей ищет место, чтобы построить себе дом.
 Улица, на которой он хочет жить, имеет длину n,
@@ -15,14 +15,12 @@
 Пустые участки обозначены нулями.
 """
 
-def closer_zero():
+def closer_zero(numbers):
     """"Функция, находящая расстояния от 
     определнного числа в массиве до ближайшего
     к нему нуля"""
-    amount_of_districts = int(input())
-    house_numbers = list(map(int, input().split()[:amount_of_districts]))
     zero_positions = [
-        i for i, number in enumerate(house_numbers) if number == 0
+        i for i, number in enumerate(numbers) if number == 0
     ]
     distance = []
     begining = 0
@@ -31,11 +29,11 @@ def closer_zero():
 
     while (i >= begining and i <= zero_positions[end] + 1):
         if begining == zero_positions[-1]:
-            while i <= len(house_numbers) - 1:
+            while i <= len(numbers) - 1:
                 distance.append(i - begining)
                 i += 1
             break
-        while house_numbers[i] == 0:
+        while numbers[i] == 0:
             distance.append(0)
             i += 1
             begining = zero_positions[end]
@@ -59,4 +57,6 @@ def closer_zero():
     return distance
 
 if __name__ == "__main__":
-    print(*closer_zero())
+    amount_of_districts = int(input())
+    house_numbers = list(map(int, input().split()[:amount_of_districts]))
+    print(*closer_zero(numbers=house_numbers))
